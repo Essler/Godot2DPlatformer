@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqwyxer5m0x4g"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_qmd0m"]
+[ext_resource type="Texture2D" uid="uid://bqb4j84403j2a" path="res://Sprites/Characters/character_0000.png" id="2_53kcu"]
+[ext_resource type="Texture2D" uid="uid://b6uk5yah7vtj8" path="res://Sprites/Objects/tile_0044.png" id="3_22gx4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vjd8"]
+radius = 9.0
+height = 22.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_5eqcn"]
+line_spacing = 1.0
+font_size = 12
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v78ym"]
+font_size = 36
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(331, 222)
+script = ExtResource("1_qmd0m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_53kcu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_6vjd8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-3, 6)
+zoom = Vector2(3, 3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DebugInfo" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 15.0
+offset_top = 43.0
+offset_right = 65.0
+offset_bottom = 69.0
+text = "<Debug Info>"
+label_settings = SubResource("LabelSettings_5eqcn")
+
+[node name="ScoreText" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 13.0
+offset_right = 193.0
+offset_bottom = 70.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_v78ym")
+
+[node name="Tile0044" type="Sprite2D" parent="."]
+position = Vector2(180, -93)
+texture = ExtResource("3_22gx4")
+
+[node name="Tile0045" type="Sprite2D" parent="."]
+position = Vector2(165, -93)
+texture = ExtResource("3_22gx4")
+
+[node name="Tile0046" type="Sprite2D" parent="."]
+position = Vector2(150, -93)
+texture = ExtResource("3_22gx4")
